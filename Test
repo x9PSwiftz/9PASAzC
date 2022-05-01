@@ -4,9 +4,9 @@ local Server = syn.request({
 }).Body
 
 if Server == 'WHITELIST!' then
-   print('script loadded')
+   loadstring(game:HttpGet('https://raw.githubusercontent.com/x9PSwiftz/_G.keylist/main/Test'))();
 elseif Server == "Invaid Hwid !" then
-   print('Invaid Hwid')
+   game.Players.localPlayer:Kick('Invaid Hwid')
 elseif Server == "Invaid Key !" then
-   print('Invaid Key')
+   game.Players.localPlayer:Kick('Invaid Key')
 end
