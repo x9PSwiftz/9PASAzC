@@ -3,7 +3,6 @@ local Server = syn.request({
    Method = "GET" 
 }).Body
 
-print(Server)
 if Server == 'WHITELIST!' then
    print('script loadded')
 elseif Server == "Invaid Hwid !" then
