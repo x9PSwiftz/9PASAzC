@@ -4,7 +4,7 @@ local Server = syn.request({
 }).Body
 
 if Server == 'WHITELIST!' then
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/x9PSwiftz/_G.keylist/main/Test'))();
+   loadstring(game:HttpGet("https://raw.githubusercontent.com/S1000RZ/DIAMOND-HUB/main/BloxFruit"))();
 elseif Server == "Invaid Hwid !" then
    game.Players.localPlayer:Kick('Invaid Hwid')
 elseif Server == "Invaid Key !" then
