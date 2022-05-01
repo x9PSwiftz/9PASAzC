@@ -1,12 +1,13 @@
-local Server = http_request({
-   Url = "http://127.0.0.1/Whitelist/Server.php?Key="..getgenv().key..game:GetService("RbxAnalyticsService"):GetClientId(),
+local Server = syn.request({
+   Url = "http://127.0.0.1/Whitelist/Server.php?Key="..getgenv().key.."&HWID="..game:GetService("RbxAnalyticsService"):GetClientId(),
    Method = "GET" 
-})
+}).Body
 
+print(Server)
 if Server == 'WHITELIST!' then
    print('script loadded')
 elseif Server == "Invaid Hwid !" then
-   game.Players.localPlayer:Kick('Invaid Hwid')
+   print('Invaid Hwid')
 elseif Server == "Invaid Key !" then
-   game.Players.localPlayer:Kick('Invaid Key')
+   print('Invaid Key')
 end
