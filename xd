@@ -1,4 +1,3 @@
------xd
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
@@ -114,13 +113,6 @@ local DiamondLib = loadstring([[
     function create:Win(ver)
     local fs = false
     local currentchanneltoggled = ""
-
-    local white_screen = Instance.new("Frame",DiamondHub)
-    white_screen.Name = 'white_screen'
-    white_screen.Position = UDim2.new(0,0,-0.1,0)
-    white_screen.Size = UDim2.new(123131, 0, 213, 0)
-    white_screen.Visible = false
-    white_screen.BackgroundColor3 = Color3.fromRGB(255, 255, 253)
     
     local Main = Instance.new("Frame")
     local MainInner = Instance.new("Frame")
@@ -148,38 +140,48 @@ local DiamondLib = loadstring([[
     MainInner.Position = UDim2.new(0, 0, 0.806984425, 0)
     MainInner.Size = UDim2.new(1, 0, 0.193014711, 299)
     
+    local white_screen = Instance.new("Frame",DiamondHub)
+    white_screen.Name = 'white_screen'
+    white_screen.Position = UDim2.new(0,0,-0.1,0)
+    white_screen.Size = UDim2.new(123131, 0, 213, 0)
+    white_screen.Visible = false
+    white_screen.BackgroundColor3 = Color3.fromRGB(255, 255, 253)
     
-    if not getgenv().ws then
         getgenv().ws = false
-    end
+    
         game:GetService("UserInputService").InputBegan:Connect(function(input,chat)
             if chat then return end
             if input.KeyCode == Enum.KeyCode.L then 
-                if ws == false then
-                    ws = true  
+                if getgenv().ws == false then
+                    getgenv().ws = true  
+                    white_screen.Visible = true
                 else 
-                    ws = false 
+                    getgenv().ws = false 
+                    white_screen.Visible = false
                 end 
             end
         end)
-        
+    
         spawn(function()
             while task.wait() do
-                if getgenv().ws == false then
-                    white_screen.Visible = false
-                else
+                if getgenv().ws then
                     white_screen.Visible = true
+                else
+                    white_screen.Visible = false
+                end
             end
-        end
+        end)
 
-        spawn(function ()
+        spawn(function()
             while task.wait() do
             if _G.autowhite_screen then
                 game:GetService('UserInputService').WindowFocusReleased:Connect(function()
-                    ws = true  
+                    getgenv().ws = true  
+                    white_screen.Visible = true
                 end)
                 game:GetService('UserInputService').WindowFocused:Connect(function()
-                    ws = false 
+                    getgenv().ws = false 
+                    white_screen.Visible = false    
                     end)
                 end
             end
