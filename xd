@@ -1,3 +1,4 @@
+-----vx
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
@@ -147,8 +148,10 @@ local DiamondLib = loadstring([[
     white_screen.Visible = false
     white_screen.BackgroundColor3 = Color3.fromRGB(255, 255, 253)
     
-        getgenv().ws = false
-    
+        if not getgenv().ws then
+            getgenv().ws = false
+        end
+        
         game:GetService("UserInputService").InputBegan:Connect(function(input,chat)
             if chat then return end
             if input.KeyCode == Enum.KeyCode.L then 
