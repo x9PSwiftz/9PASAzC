@@ -1,4 +1,4 @@
------vx
+----ggg
 if not game:IsLoaded() then game.Loaded:Wait() end
 repeat wait() until game.Players
 repeat wait() until game.Players.LocalPlayer
@@ -107,7 +107,7 @@ local DiamondLib = loadstring([[
     DiamondHub.Name = realname
     DiamondHub.Parent = game:WaitForChild('CoreGui')
     DiamondHub.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-    DiamondHub.DisplayOrder = 999999999
+    DiamondHub.DisplayOrder = 2
     
     create = {}
     
@@ -115,6 +115,13 @@ local DiamondLib = loadstring([[
     local fs = false
     local currentchanneltoggled = ""
     
+    local white_screen = Instance.new("Frame",DiamondHub)
+    white_screen.Name = 'white_screen'
+    white_screen.Position = UDim2.new(0,0,-0.1,0)
+    white_screen.Size = UDim2.new(123131, 0, 213, 0)
+    white_screen.Visible = false
+    white_screen.BackgroundColor3 = Color3.fromRGB(255, 255, 253)
+
     local Main = Instance.new("Frame")
     local MainInner = Instance.new("Frame")
     local UICorner = Instance.new("UICorner")
@@ -141,17 +148,10 @@ local DiamondLib = loadstring([[
     MainInner.Position = UDim2.new(0, 0, 0.806984425, 0)
     MainInner.Size = UDim2.new(1, 0, 0.193014711, 299)
     
-    local white_screen = Instance.new("Frame",DiamondHub)
-    white_screen.Name = 'white_screen'
-    white_screen.Position = UDim2.new(0,0,-0.1,0)
-    white_screen.Size = UDim2.new(123131, 0, 213, 0)
-    white_screen.Visible = false
-    white_screen.BackgroundColor3 = Color3.fromRGB(255, 255, 253)
-    
         if not getgenv().ws then
             getgenv().ws = false
         end
-        
+
         game:GetService("UserInputService").InputBegan:Connect(function(input,chat)
             if chat then return end
             if input.KeyCode == Enum.KeyCode.L then 
@@ -2671,12 +2671,16 @@ Visuals:Line()
 
 Visuals:Label("setfpscap")
 
-if not getgenv().setfpscap then
-    getgenv().setfpscap = 60
+if getgenv().fpslock then
+    setfpscap(getgenv().fpslock)
 end
-Visuals:Slider("Stat Point",5,120,getgenv().setfpscap,function(x)
-    getgenv().setfpscap = x
-    setfpscap(getgenv().setfpscap)
+
+Visuals:Button("setfpscaop(10)",function()
+    setfpscap(10)
+end)
+
+Visuals:Button("setfpscaop(60)",function()
+    setfpscap(60)
 end)
 
 Visuals:Label('Webhook')
