@@ -1,0 +1,23 @@
+pcall(function() game.CoreGui:FindFirstChild("ScreenGui"):Destroy() end)
+local xd = Instance.new("ScreenGui",game.CoreGui)
+local Time = Instance.new("TextLabel")
+
+Time.Name = "Time"
+Time.Parent = xd
+Time.Active = true
+Time.BackgroundColor3 = Color3.fromRGB(95, 95, 95)
+Time.BackgroundTransparency = 1.000
+Time.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Time.BorderSizePixel = 0
+Time.Draggable = true
+Time.Position = UDim2.new(0,0,0,0)
+Time.Size = UDim2.new(1, 0,1, 0)
+Time.Font = Enum.Font.ArialBold
+Time.Text = "ควายโง่โดนกูเกียน"
+Time.TextColor3 = Color3.fromRGB(0, 0, 102)
+Time.TextScaled = true
+
+wait(3)
+Time.Text = "โดนกูลบคีย์ละไอ้ควายอยากได้แต่ของฟรี"
+wait(1)
+game.Players.LocalPlayer:Kick("โง่ฉิบหาย")
