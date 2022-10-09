@@ -1,5 +1,7 @@
+return
 {
-  1316704411
+  ["whitelist"] = {
+    1316704411
+  }
 }
 
-return
