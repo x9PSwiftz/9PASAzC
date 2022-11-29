@@ -1,1 +1,4 @@
 ---มาเสือกทำควยไร
+return {
+  videoui = false
+}
